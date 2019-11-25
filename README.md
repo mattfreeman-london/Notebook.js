@@ -1,1 +1,1 @@
-Building a notebook with js
+Building a Princes Dairy notebook with js
