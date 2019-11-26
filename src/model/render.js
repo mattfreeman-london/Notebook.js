@@ -3,9 +3,9 @@ const Render = function(notebook) {
 }
 
 Render.prototype.renderNote = function(note) {
-  parentDiv = document.createElement("DIV")
-  h1 = document.createElement("H1")
-  h1.innerHTML = note.title
+  // parentDiv = document.createElement("DIV")
+  // h1 = document.createElement("H1")
+  // h1.innerHTML = note.title
   parentDiv.appendChild(h1)
   p = document.createElement("P")
   p.innerHTML = note.body
