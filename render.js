@@ -16,9 +16,10 @@ Render.prototype.renderNote = function(note) {
 Render.prototype.listNotes = function(notebook = this.notebook) {
   parentDiv = document.createElement("DIV")
   listDiv = document.getElementById("list")
-  for (i = 0; i < notebook.allNotes.length; i++) {
+  allNotes = notebook.allNotes()
+  for (i = 0; i < allNotes.length; i++) {
     link = document.createElement("A")
-    link.innerHTML = this.abbreviate(notebook.allNotes[i])
+    link.innerHTML = allNotes[i].abbreviate()
     bk = document.createElement("BR")
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)

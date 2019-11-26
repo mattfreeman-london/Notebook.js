@@ -4,7 +4,6 @@ function Notebook() {
     new Note("Hello... Is it me your looking for"),
     new Note("Hello, hello hello, heeellllooooooo")
   ]
-
 }
 
 Notebook.prototype.allNotes = function() {
