@@ -6,6 +6,6 @@ Note.prototype.body = function() {
   return this._body
 }
 
-// Note.prototype.abbreviate = function(note) {
-//   return note.body.slice(0, 20)
-// }
+Note.prototype.abbreviate = function(note) {
+  return note.body.slice(0, 20)
+}
