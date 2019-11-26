@@ -13,10 +13,6 @@ Render.prototype.renderNote = function(note) {
   return parentDiv
 }
 
-Render.prototype.abbreviate = function(note) {
-  return note.body.slice(0, 20)
-}
-
 Render.prototype.listNotes = function(notebook = this.notebook) {
   parentDiv = document.createElement("DIV")
   listDiv = document.getElementById("list")
@@ -29,4 +25,3 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
   }
   listDiv.appendChild(parentDiv)
 }
-
