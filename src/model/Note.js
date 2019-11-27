@@ -7,5 +7,5 @@ Note.prototype.body = function() {
 }
 
 Note.prototype.abbreviate = function() {
-  return this._body.slice(0, 20)
+  return this._body.slice(0, 20) + "..."
 }
