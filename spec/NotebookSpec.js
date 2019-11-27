@@ -8,3 +8,9 @@ scenario("Notebook: All notes are returned in array...", function() {
   notebook._notes = [note1, note2, note3]
   return expect(notebook.allNotes()).toEqual(notebook._notes)
 })
+
+scenario("Create a new note", function() {
+  var notebook = new Notebook
+  notebook.createNote('noteContent')
+  return expect(notebook.allNotes().length).toEqual(1) 
+})
