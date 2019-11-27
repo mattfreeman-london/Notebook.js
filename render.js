@@ -33,7 +33,8 @@ Render.prototype.createTextBox = function() {
   var textBox = document.createElement("TEXTAREA");
   textBox.setAttribute("rows", "10")
   textBox.setAttribute("cols", "50")
-  textBox.setAttribute("form", "note content")
+  // textBox.setAttribute("form", "note content")
+  textBox.setAttribute("id","note-content")
   this.root.appendChild(textBox)
   this.root.appendChild(bk)
   var button = document.createElement("BUTTON")
@@ -43,4 +44,6 @@ Render.prototype.createTextBox = function() {
   this.root.appendChild(button)
 }
 
-// Render.prototype.createNote
+Render.prototype.createNote = function() {
+  document.getElementById('create-note').addEventListener('click', notebook.createNote(document.getElementById("note-content").value))
+}
