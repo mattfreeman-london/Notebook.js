@@ -1,8 +1,10 @@
-
-var bodyIsSavedInNote = function() {
+scenario("Body is saved in note object...", function() {
   var note = new Note("Look at my sexy body!!")
-  expect(note.body()).toEqual("Look at my sexy body!!")
-}
+  return expect(note.body()).toEqual("Look at my sexy body!!")
+})
 
-console.log("Body is saved in note object...")
-console.log(bodyIsSavedInNote())
+
+scenario("Returns abbreviated body...", function() {
+  var note = new Note("Look at my sexy body!! 'fat bastard'")
+  return expect(note.abbreviate()).toEqual("Look at my sexy body...")
+})
