@@ -26,6 +26,7 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
     parentDiv.appendChild(bk)
   }
   listDiv.appendChild(parentDiv)
+  return parentDiv
 }
 
 Render.prototype.createTextBox = function() {
@@ -33,10 +34,20 @@ Render.prototype.createTextBox = function() {
   textBox.setAttribute("rows", "10")
   textBox.setAttribute("cols", "50")
   this.root.appendChild(textBox)
+  return textBox
 }
 
 Render.prototype.createHeader = function(h1) {
   var header = document.createElement("H1");
   header.innerHTML = h1
   this.root.appendChild(header)
+  return header
+}
+
+Render.prototype.createButton = function(name, fn) {
+  var button = document.createElement("BUTTON")
+  button.innerHTML = name
+  button.addEventListener("click", fn)
+  this.root.appendChild(button)
+  return button
 }
