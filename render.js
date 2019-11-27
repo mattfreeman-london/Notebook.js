@@ -1,6 +1,7 @@
 const Render = function(notebook) {
   this.notebook = notebook
   this.root = document.getElementById("root")
+  bk = document.createElement("BR")
 }
 
 Render.prototype.renderNote = function(note) {
@@ -21,7 +22,7 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
   for (i = 0; i < allNotes.length; i++) {
     link = document.createElement("A")
     link.innerHTML = allNotes[i].abbreviate()
-    bk = document.createElement("BR")
+
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
   }
@@ -32,5 +33,14 @@ Render.prototype.createTextBox = function() {
   var textBox = document.createElement("TEXTAREA");
   textBox.setAttribute("rows", "10")
   textBox.setAttribute("cols", "50")
+  textBox.setAttribute("form", "note content")
   this.root.appendChild(textBox)
+  this.root.appendChild(bk)
+  var button = document.createElement("BUTTON")
+
+  button.setAttribute("id", "create-note")
+  button.innerHTML = "Create Note"
+  this.root.appendChild(button)
 }
+
+// Render.prototype.createNote
