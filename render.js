@@ -1,5 +1,6 @@
 const Render = function(notebook) {
   this.notebook = notebook
+  this.root = document.getElementById("root")
 }
 
 Render.prototype.renderNote = function(note) {
@@ -25,4 +26,11 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
     parentDiv.appendChild(bk)
   }
   listDiv.appendChild(parentDiv)
+}
+
+Render.prototype.createTextBox = function() {
+  var textBox = document.createElement("TEXTAREA");
+  textBox.setAttribute("rows", "10")
+  textBox.setAttribute("cols", "50")
+  this.root.appendChild(textBox)
 }
