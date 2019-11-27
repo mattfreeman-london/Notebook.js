@@ -1,0 +1,25 @@
+{
+  "name": "notebook",
+  "version": "1.0.0",
+  "description": "a simple notbook front end app written in JS",
+  "main": "notebook.html",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edcourage/Notebook.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edcourage/Notebook.js/issues"
+  },
+  "homepage": "https://github.com/edcourage/Notebook.js#readme",
+  "dependencies": {
+    "http-server": "^0.12.0"
+  }
+}
