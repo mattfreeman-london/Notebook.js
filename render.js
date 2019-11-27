@@ -34,3 +34,9 @@ Render.prototype.createTextBox = function() {
   textBox.setAttribute("cols", "50")
   this.root.appendChild(textBox)
 }
+
+Render.prototype.createHeader = function(h1) {
+  var header = document.createElement("H1");
+  header.innerHTML = h1
+  this.root.appendChild(header)
+}
