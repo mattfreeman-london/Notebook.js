@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/edcourage/Notebook.js#readme",
   "dependencies": {
-    "http-server": "^0.12.0"
+    "http-server": "^0.12.0",
+    "nodemon": "^2.0.1"
   }
 }
