@@ -15,12 +15,12 @@ Render.prototype.renderNote = function(note) {
   return parentDiv
 }
 
-Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
+Render.prototype.listNotesOneByOne = function() {
 
   parentDiv = document.createElement("DIV")
   listDiv = document.getElementById("list")
 
-  note = notebook.allNotes()[notebook.allNotes().length - 1]
+  note = this.notebook.allNotes()[this.notebook.allNotes().length - 1]
   link = document.createElement("A")
     link.innerHTML = note.abbreviate()
     link.setAttribute("href", `#${note._id}`)
