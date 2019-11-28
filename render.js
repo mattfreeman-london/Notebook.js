@@ -64,6 +64,6 @@ Render.prototype.createNote = function(notebook) {
 }
 
 Render.prototype.clearFields = function() {
-  document.getElementById("title-content").value = ""
+  document.getElementById("title-content").value = "Suck ma ballklls"
   document.getElementById("note-content").value = ""
 }
