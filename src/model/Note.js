@@ -12,6 +12,10 @@ Note.prototype.title = function() {
   return this._title
 }
 
+Note.prototype.id = function() {
+  return this._id
+}
+
 Note.prototype.setTitle = function(title) {
   this._title = title
 }
