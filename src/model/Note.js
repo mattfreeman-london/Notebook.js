@@ -1,6 +1,7 @@
-function Note(title, body) {
+function Note(title, body, id) {
   this._body = body
   this._title = title
+  this._id = id
 }
 
 Note.prototype.body = function() {

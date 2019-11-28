@@ -29,14 +29,11 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
 }
 
 Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
-
   parentDiv = document.createElement("DIV")
   listDiv = document.getElementById("list")
-
   note = notebook.allNotes()[notebook.allNotes().length - 1]
   link = document.createElement("A")
     link.innerHTML = note.abbreviate()
-    // parentDiv.remove()
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
 
