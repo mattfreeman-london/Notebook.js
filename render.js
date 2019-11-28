@@ -37,6 +37,7 @@ Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
   link = document.createElement("A")
     link.innerHTML = note.abbreviate()
     link.setAttribute("href", '#')
+    link.addEventListener("click", )
     // parentDiv.remove()
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
