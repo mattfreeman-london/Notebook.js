@@ -15,19 +15,6 @@ Render.prototype.renderNote = function(note) {
   return parentDiv
 }
 
-// Render.prototype.listNotes = function(notebook = this.notebook) {
-//   parentDiv = document.createElement("DIV")
-//   listDiv = document.getElementById("list")
-//   allNotes = notebook.allNotes()
-//   for (i = 0; i < allNotes.length; i++) {
-//     link = document.createElement("A")
-//     link.innerHTML = allNotes[i].abbreviate()
-//     parentDiv.appendChild(link)
-//     parentDiv.appendChild(bk)
-//   }
-//   listDiv.appendChild(parentDiv)
-// }
-
 Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
 
   parentDiv = document.createElement("DIV")
@@ -36,9 +23,7 @@ Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
   note = notebook.allNotes()[notebook.allNotes().length - 1]
   link = document.createElement("A")
     link.innerHTML = note.abbreviate()
-    link.setAttribute("href", '#')
-    link.addEventListener("click", )
-    // parentDiv.remove()
+    link.setAttribute("href", `#${note._id}`)
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
 
@@ -73,14 +58,6 @@ Render.prototype.createInputFields = function() {
   this.root.appendChild(textBox)
   this.root.appendChild(button)
 }
-
-// Render.prototype.createNote = function(notebook) {
-//   createNoteButton = document.getElementById('create-note')
-//   titleText = document.getElementById("title-content").value
-//   noteText = document.getElementById("note-content").value
-//   notebook.createNote(titleText, noteText)
-//   document.getElementById('create-note').addEventListener('click', notebook.createNote(document.getElementById("note-content").value))
-// }
 
 Render.prototype.clearFields = function() {
   document.getElementById("title-content").value = ""
