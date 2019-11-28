@@ -2,7 +2,8 @@ const Render = function(notebook) {
   this.notebook = notebook
   this.root = document.getElementById("root")
   this.list = document.getElementById("list")
-  this.note = document.getElementById("note")
+  this.textBox = document.getElementById("text-box")
+  this.viewNote = document.getElementById("view-note")
   bk = document.createElement("BR")
 }
 
@@ -73,7 +74,7 @@ Render.prototype.hashRouter = function(notebook = this.notebook) {
     id = newURL.split("#")[1]
     note_obj = notebook.findById(id)
     note_view = render.renderNote(note)
-    document.getElementById("note").innerHTML = ""
-    render.note.appendChild(note_view)
+    document.getElementById("view-note").innerHTML = ""
+    render.viewNote.appendChild(note_view)
   })
 }
