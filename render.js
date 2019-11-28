@@ -1,6 +1,8 @@
 const Render = function(notebook) {
   this.notebook = notebook
   this.root = document.getElementById("root")
+  this.list = document.getElementById("list")
+  this.note = document.getElementById("note")
   bk = document.createElement("BR")
 }
 
@@ -15,25 +17,15 @@ Render.prototype.renderNote = function(note) {
   return parentDiv
 }
 
-Render.prototype.listNotes = function(notebook = this.notebook) {
-  parentDiv = document.createElement("DIV")
-  listDiv = document.getElementById("list")
-  allNotes = notebook.allNotes()
-  for (i = 0; i < allNotes.length; i++) {
-    link = document.createElement("A")
-    link.innerHTML = allNotes[i].abbreviate()
-    parentDiv.appendChild(link)
-    parentDiv.appendChild(bk)
-  }
-  listDiv.appendChild(parentDiv)
-}
+Render.prototype.listNotesOneByOne = function() {
 
-Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
   parentDiv = document.createElement("DIV")
   listDiv = document.getElementById("list")
-  note = notebook.allNotes()[notebook.allNotes().length - 1]
+
+  note = this.notebook.allNotes()[this.notebook.allNotes().length - 1]
   link = document.createElement("A")
     link.innerHTML = note.abbreviate()
+    link.setAttribute("href", `#${note._id}`)
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
 
@@ -57,7 +49,9 @@ Render.prototype.createInputFields = function() {
   button.setAttribute("id", "create-note")
   button.innerHTML = "Create Note"
   button.addEventListener("click", function() {
-    render.createNote(notebook)
+    titleText = document.getElementById("title-content").value
+    noteText = document.getElementById("note-content").value
+    render.notebook.createNote(titleText, noteText)
     render.listNotesOneByOne()
     render.clearFields()
   })
@@ -65,13 +59,6 @@ Render.prototype.createInputFields = function() {
   this.root.appendChild(titleBox)
   this.root.appendChild(textBox)
   this.root.appendChild(button)
-}
-
-Render.prototype.createNote = function(notebook) {
-  createNoteButton = document.getElementById('create-note')
-  titleText = document.getElementById("title-content").value
-  noteText = document.getElementById("note-content").value
-  notebook.createNote(titleText, noteText)
 }
 
 Render.prototype.clearFields = function() {
@@ -82,11 +69,11 @@ Render.prototype.clearFields = function() {
 Render.prototype.hashRouter = function(notebook = this.notebook) {
   render = this
   window.addEventListener("hashchange", function(object){
-    newURL= object.newURL
+    newURL = object.newURL
     id = newURL.split("#")[1]
     note_obj = notebook.findById(id)
     note_view = render.renderNote(note)
-    document.getElementById("root").innerHTML = ""
-    // render.root.appendChild(note_view)
+    document.getElementById("note").innerHTML = ""
+    render.note.appendChild(note_view)
   })
 }
