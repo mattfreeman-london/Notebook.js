@@ -22,7 +22,7 @@ Notebook.prototype.findByTitle = function(title) {
 Notebook.prototype.findById = function(id) {
   for (i = 0; i < this._notes.length; i++) {
     note = this._notes[i]
-    if (note.id == id) {
+    if (note._id == id) {
       return note
     }
   }
