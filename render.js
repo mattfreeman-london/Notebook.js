@@ -1,13 +1,14 @@
 const Render = function(notebook) {
   this.notebook = notebook
   this.root = document.getElementById("root")
+  bk = document.createElement("BR")
 }
 
 Render.prototype.renderNote = function(note) {
   parentDiv = document.createElement("DIV")
-  // h1 = document.createElement("H1")
-  // h1.innerHTML = note.title
-  // parentDiv.appendChild(h1)
+  h1 = document.createElement("H1")
+  h1.innerHTML = note.title
+  parentDiv.appendChild(h1)
   p = document.createElement("P")
   p.innerHTML = note.body
   parentDiv.appendChild(p)
@@ -21,16 +22,48 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
   for (i = 0; i < allNotes.length; i++) {
     link = document.createElement("A")
     link.innerHTML = allNotes[i].abbreviate()
-    bk = document.createElement("BR")
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
   }
   listDiv.appendChild(parentDiv)
 }
 
-Render.prototype.createTextBox = function() {
+Render.prototype.createInputFields = function() {
+  render = this
+  
+  var titleBox = document.createElement("INPUT")
+  titleBox.setAttribute("id", "title-content")
+  titleBox.setAttribute("placeholder", "Please Enter Title")
+
   var textBox = document.createElement("TEXTAREA");
   textBox.setAttribute("rows", "10")
   textBox.setAttribute("cols", "50")
+  textBox.setAttribute("id","note-content")
+  textBox.setAttribute("placeholder", "Please Enter Note text")
+
+  var button = document.createElement("BUTTON")
+  button.setAttribute("id", "create-note")
+  button.innerHTML = "Create Note"
+  button.addEventListener("click", function() {
+    render.createNote(notebook)
+    render.listNotes()
+    render.clearFields()
+  })
+
+  this.root.appendChild(titleBox)
   this.root.appendChild(textBox)
+  this.root.appendChild(button)
+}
+
+Render.prototype.createNote = function(notebook) {
+  createNoteButton = document.getElementById('create-note')
+  titleText = document.getElementById("title-content").value
+  noteText = document.getElementById("note-content").value
+  notebook.createNote(titleText, noteText)
+  // document.getElementById('create-note').addEventListener('click', notebook.createNote(document.getElementById("note-content").value))
+}
+
+Render.prototype.clearFields = function() {
+  document.getElementById("title-content").value = "Suck ma ballklls"
+  document.getElementById("note-content").value = ""
 }
