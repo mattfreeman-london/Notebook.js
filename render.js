@@ -30,7 +30,7 @@ Render.prototype.listNotes = function(notebook = this.notebook) {
 
 Render.prototype.createInputFields = function() {
   render = this
-  
+
   var titleBox = document.createElement("INPUT")
   titleBox.setAttribute("id", "title-content")
   titleBox.setAttribute("placeholder", "Please Enter Title")
@@ -64,6 +64,6 @@ Render.prototype.createNote = function(notebook) {
 }
 
 Render.prototype.clearFields = function() {
-  document.getElementById("title-content").value = "Suck ma ballklls"
+  document.getElementById("title-content").value = ""
   document.getElementById("note-content").value = ""
 }
