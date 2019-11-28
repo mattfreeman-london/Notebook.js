@@ -15,17 +15,34 @@ Render.prototype.renderNote = function(note) {
   return parentDiv
 }
 
-Render.prototype.listNotes = function(notebook = this.notebook) {
+// Render.prototype.listNotes = function(notebook = this.notebook) {
+//
+//   parentDiv = document.createElement("DIV")
+//   listDiv = document.getElementById("list")
+//
+//   allNotes = notebook.allNotes()
+//   for (i = 0; i < allNotes.length; i++) {
+//     link = document.createElement("A")
+//     link.innerHTML = allNotes[i].abbreviate()
+//     // parentDiv.remove()
+//     parentDiv.appendChild(link)
+//     parentDiv.appendChild(bk)
+//   }
+//   listDiv.appendChild(parentDiv)
+// }
+
+Render.prototype.listNotesOneByOne = function(notebook = this.notebook) {
+
   parentDiv = document.createElement("DIV")
   listDiv = document.getElementById("list")
-  allNotes = notebook.allNotes()
-  for (i = 0; i < allNotes.length; i++) {
-    link = document.createElement("A")
-    link.innerHTML = allNotes[i].abbreviate()
 
+  note = notebook.allNotes()[notebook.allNotes().length - 1]
+  link = document.createElement("A")
+    link.innerHTML = note.abbreviate()
+    // parentDiv.remove()
     parentDiv.appendChild(link)
     parentDiv.appendChild(bk)
-  }
+
   listDiv.appendChild(parentDiv)
 }
 
@@ -33,17 +50,18 @@ Render.prototype.createTextBox = function() {
   var textBox = document.createElement("TEXTAREA");
   textBox.setAttribute("rows", "10")
   textBox.setAttribute("cols", "50")
-  // textBox.setAttribute("form", "note content")
   textBox.setAttribute("id","note-content")
   this.root.appendChild(textBox)
   this.root.appendChild(bk)
   var button = document.createElement("BUTTON")
-
-  button.setAttribute("id", "create-note")
+  button.setAttribute("id", "createNote")
   button.innerHTML = "Create Note"
   this.root.appendChild(button)
 }
 
 Render.prototype.createNote = function() {
-  document.getElementById('create-note').addEventListener('click', notebook.createNote(document.getElementById("note-content").value))
+  document.getElementById("createNote").addEventListener('click', function() {
+  notebook.createNote(document.getElementById("note-content").value)
+  render.listNotesOneByOne()
+})
 }
