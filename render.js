@@ -1,16 +1,19 @@
 const Render = function(notebook) {
   this.notebook = notebook
   this.root = document.getElementById("root")
+  this.list = document.getElementById("list")
+  this.textBox = document.getElementById("text-box")
+  this.viewNote = document.getElementById("view-note")
   bk = document.createElement("BR")
 }
 
 Render.prototype.renderNote = function(note) {
   parentDiv = document.createElement("DIV")
   h1 = document.createElement("H1")
-  h1.innerHTML = note.title
+  h1.innerHTML = note.title()
   parentDiv.appendChild(h1)
   p = document.createElement("P")
-  p.innerHTML = note.body
+  p.innerHTML = note.body()
   parentDiv.appendChild(p)
   return parentDiv
 }
@@ -62,4 +65,16 @@ Render.prototype.createInputFields = function() {
 Render.prototype.clearFields = function() {
   document.getElementById("title-content").value = ""
   document.getElementById("note-content").value = ""
+}
+
+Render.prototype.hashRouter = function(notebook = this.notebook) {
+  render = this
+  window.addEventListener("hashchange", function(object){
+    newURL = object.newURL
+    id = newURL.split("#")[1]
+    note_obj = notebook.findById(id)
+    note_view = render.renderNote(note)
+    document.getElementById("view-note").innerHTML = ""
+    render.viewNote.appendChild(note_view)
+  })
 }
