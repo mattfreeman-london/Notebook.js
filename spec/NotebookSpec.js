@@ -1,4 +1,4 @@
-
+// Tests for the Notebook functionality, used by ./src/model/Notebook.js:
 
 scenario("Notebook: All notes are returned in array...", function() {
   var notebook = new Notebook

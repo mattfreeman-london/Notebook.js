@@ -1,3 +1,8 @@
+// This file is used by:
+//  notebook.html
+
+// This function sets up the new instance on Notebook on screen when you
+// first visit the webpage:
 const Render = function(notebook) {
   this.notebook = notebook
   this.root = document.getElementById("root")
@@ -7,6 +12,9 @@ const Render = function(notebook) {
   bk = document.createElement("BR")
 }
 
+// This function takes a new note and places it on screen.
+// Variables h1 and p are so named as they match up with the HTML elements
+// that they relate to:
 Render.prototype.renderNote = function(note) {
   parentDiv = document.createElement("DIV")
   h1 = document.createElement("H1")
@@ -18,6 +26,9 @@ Render.prototype.renderNote = function(note) {
   return parentDiv
 }
 
+// This function allows you to see an abbreviated version of each current note
+// on screen after entering it, in order in which they were entered.
+// You can click on each abbreviated note to see the full text.
 Render.prototype.listNotesOneByOne = function() {
 
   parentDiv = document.createElement("DIV")
@@ -33,19 +44,20 @@ Render.prototype.listNotesOneByOne = function() {
   listDiv.appendChild(parentDiv)
 }
 
+// This function creates the format of the page, empty of content:
 Render.prototype.createInputFields = function() {
   render = this
-
+// The space to put the title of the note:
   var titleBox = document.createElement("INPUT")
   titleBox.setAttribute("id", "title-content")
   titleBox.setAttribute("placeholder", "Please Enter Title")
-
+// The larger text box to enter the body of the note:
   var textBox = document.createElement("TEXTAREA");
   textBox.setAttribute("rows", "10")
   textBox.setAttribute("cols", "50")
   textBox.setAttribute("id","note-content")
   textBox.setAttribute("placeholder", "Please Enter Note text")
-
+// The submit button:
   var button = document.createElement("BUTTON")
   button.setAttribute("id", "create-note")
   button.innerHTML = "Create Note"
