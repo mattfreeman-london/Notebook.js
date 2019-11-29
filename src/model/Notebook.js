@@ -1,3 +1,5 @@
+// This file creates and manages the Notebook instance itself:
+
 function Notebook() {
   this._notes = []
 }
@@ -18,7 +20,7 @@ Notebook.prototype.findByTitle = function(title) {
     }
   }
 }
- 
+
 Notebook.prototype.findById = function(id) {
   for (i = 0; i < this._notes.length; i++) {
     note = this._notes[i]

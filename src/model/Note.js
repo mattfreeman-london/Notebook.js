@@ -1,3 +1,5 @@
+// This file creates and manages each individual Note instance:
+
 function Note(title, body, id) {
   this._body = body
   this._title = title

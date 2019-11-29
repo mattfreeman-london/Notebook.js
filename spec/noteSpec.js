@@ -1,3 +1,5 @@
+// Tests for the Note functionality, used by ./src/model/Note.js:
+
 scenario("Body is saved in note object...", function() {
   var note = new Note("Look at my sexy body!!")
   return expect(note.body()).toEqual("Look at my sexy body!!")

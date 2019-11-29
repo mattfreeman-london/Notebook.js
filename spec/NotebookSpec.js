@@ -1,3 +1,5 @@
+// Tests for the Notebook functionality, used by ./src/model/Notebook.js:
+
 scenario("Notebook: All notes are returned in array...", function() {
   var notebook = new Notebook
   note1 = new fake("note1")
