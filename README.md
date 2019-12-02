@@ -1,10 +1,10 @@
-#Makers October 2019 Cohort - Week 7 Group Project
+# Makers October 2019 Cohort - Week 7 Group Project
 
-##Building a Princes Dairy notebook with js
-##Building our own tests
+## Building a Princes Dairy notebook with js
+## Building our own tests
 
 
-##Setting up the server:
+## Setting up the server:
 The server runs the notebook.html file on the 8080 port of localhost
 
 1. if you don't already have node installed:
